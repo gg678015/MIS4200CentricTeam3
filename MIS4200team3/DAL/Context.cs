@@ -5,7 +5,7 @@ using System.Web;
 using MIS4200team3.Models;
 using System.Data.Entity;
 
-namespace MIS4200team3.CentricTeam3Context.DAL
+namespace MIS4200team3.DAL
 {
     public class Context : DbContext
     {
