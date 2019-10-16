@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace MIS4200team3.Controllers
 {
+    
     public class HomeController : Controller
     {
         public ActionResult Index()
