@@ -40,7 +40,7 @@ namespace MIS4200team3.Controllers
         // GET: Recognitions/Create
         public ActionResult Create()
         {
-            ViewBag.profileID = new SelectList(db.Profile, "profileID", "firstName");
+            ViewBag.profileID = new SelectList(db.Profile, "profileID", "fullName");
             return View();
         }
 
