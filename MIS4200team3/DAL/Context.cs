@@ -15,5 +15,6 @@ namespace MIS4200team3.DAL
         }
 
         public DbSet<Profile> Profile { get; set; }
+        public DbSet<Recognition> Recognition { get; set; }
     }
 }
