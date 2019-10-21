@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MIS4200team3.CentricTeam3Context.DAL;
+using MIS4200team3.DAL;
 using MIS4200team3.Models;
 
 namespace MIS4200team3.Controllers
