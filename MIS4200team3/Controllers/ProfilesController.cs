@@ -16,14 +16,23 @@ namespace MIS4200team3.Controllers
     {
         private Context db = new Context();
 
-        // GET: Profiles
-        public ActionResult Index()
+
+        public ActionResult Index(string searchString)
         {
+            var testusers = from u in db.Profile select u;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                testusers = testusers.Where(u =>
+               u.lastName.Contains(searchString)
+               || u.firstName.Contains(searchString));
+                // if here, users were found so view them
+                return View(testusers.ToList());
+            }
             return View(db.Profile.ToList());
         }
 
-        // GET: Profiles/Details/5
-        public ActionResult Details(int? id)
+            // GET: Profiles/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {
