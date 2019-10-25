@@ -22,7 +22,13 @@ namespace MIS4200team3.Controllers
             var testusers = from u in db.Profile select u;
             if (!String.IsNullOrEmpty(searchString))
             {
-                testusers = testusers.Where(u =>
+                testusers = db.Profile.Where(u =>
+               u.lastName.Contains(searchString)
+               || u.firstName.Contains(searchString));
+
+                if (testusers == null)
+
+                    testusers = testusers.Where(u =>
                u.lastName.Contains(searchString)
                || u.firstName.Contains(searchString));
                 // if here, users were found so view them
@@ -31,8 +37,8 @@ namespace MIS4200team3.Controllers
             return View(db.Profile.ToList());
         }
 
-            // GET: Profiles/Details/5
-            public ActionResult Details(int? id)
+       // GET: Profiles/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
