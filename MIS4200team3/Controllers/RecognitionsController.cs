@@ -11,6 +11,7 @@ using MIS4200team3.Models;
 
 namespace MIS4200team3.Controllers
 {
+    [Authorize]
     public class RecognitionsController : Controller
     {
         private Context db = new Context();
