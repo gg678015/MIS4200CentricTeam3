@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit Profile <span class="glyphicon glyphicon-pencil"></span></h2>
 
 
 @using (Html.BeginForm())
@@ -52,7 +52,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.employeeTitle, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.employeeTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EnumDropDownListFor(model => model.employeeTitle, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.employeeTitle, "", new { @class = "text-danger" })
             </div>
         </div>

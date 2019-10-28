@@ -11,33 +11,17 @@ using MIS4200team3.Models;
 
 namespace MIS4200team3.Controllers
 {
-    [Authorize]
     public class ProfilesController : Controller
     {
         private Context db = new Context();
 
-
-        public ActionResult Index(string searchString)
+        // GET: Profiles
+        public ActionResult Index()
         {
-            var testusers = from u in db.Profile select u;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                testusers = db.Profile.Where(u =>
-               u.lastName.Contains(searchString)
-               || u.firstName.Contains(searchString));
-
-                if (testusers == null)
-
-                    testusers = testusers.Where(u =>
-               u.lastName.Contains(searchString)
-               || u.firstName.Contains(searchString));
-                // if here, users were found so view them
-                return View(testusers.ToList());
-            }
             return View(db.Profile.ToList());
         }
 
-       // GET: Profiles/Details/5
+        // GET: Profiles/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
