@@ -1,32 +1,108 @@
 ﻿@{
     ViewBag.Title = "Core Vaules";
 }
-<h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 <p>
-    Here are Centric's Core Values.
-    <section>
-        Stewartship - Practice  Responsible Stewardship
-    </section>
-            <aside>
-                Culture - Invest in an Exceptional Culture
-            </aside>
-            <aside>
-                Delivery Excellence - Commit to Delivery Excellence
-            </aside>
-            <aside>
-                Innovation - Strive to Innovate
-            </aside>
-            <aside>
-                Greater Good - Ignite Passion for the Greater Good
-            </aside>
-            <aside>
-                Integrity and Openness - Embrace Integrity and Openness
-            </aside>
-            <aside>
-                Balance -  Live a Balanced Life
-            </aside>
-
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                        Stewartship
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    Practice  Responsible Stewardship
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                            Culture
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Invest in an Exceptional Culture
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                            Delivery Excellence
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Commit to Delivery Excellence
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                            Innovation
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Strive to Innovate
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                            Greater Good
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Ignite Passion for the Greater Good
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                            Integrity and Openness
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Embrace Integrity and Openness
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                            Balance
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse7" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Live a Balanced Life
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </p>
 
