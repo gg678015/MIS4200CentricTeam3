@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MIS4200team3.DAL;
 using MIS4200team3.Models;
 
@@ -51,6 +52,10 @@ namespace MIS4200team3.Controllers
         {
             if (ModelState.IsValid)
             {
+                //userDetails.ID = Guid.NewGuid(); // original new GUID
+                Guid profileID;  // create a variable to hold the GUID
+                Guid.TryParse(User.Identity.GetUserId(), out profileID);
+                profile.ID = profileID;
                 db.Profile.Add(profile);
                 db.SaveChanges();
                 return RedirectToAction("Index");

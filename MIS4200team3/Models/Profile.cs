@@ -8,6 +8,8 @@ namespace MIS4200team3.Models
 {
     public class Profile
     {
+        [Key]
+        public Guid ID { get; set; }
         public int profileID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
