@@ -12,6 +12,7 @@ using MIS4200team3.Models;
 
 namespace MIS4200team3.Controllers
 {
+    [Authorize]
     public class ProfilesController : Controller
     {
         private Context db = new Context();
@@ -20,6 +21,18 @@ namespace MIS4200team3.Controllers
         public ActionResult Index()
         {
             return View(db.Profile.ToList());
+        }
+
+        public ActionResult MyProfile()
+        {
+            Guid profileID;  // create a variable to hold the GUID
+            Guid.TryParse(User.Identity.GetUserId(), out profileID);
+            Profile profile = db.Profile.Find(profileID);
+            if (profile == null)
+            {
+                return HttpNotFound();
+            }
+            return View(profile);
         }
 
         // GET: Profiles/Details/5

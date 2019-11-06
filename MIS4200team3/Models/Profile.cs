@@ -10,7 +10,7 @@ namespace MIS4200team3.Models
     {
         [Key]
         public Guid ID { get; set; }
-        public int profileID { get; set; }
+        // public int profileID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public bUnit businessUnit { get; set; }

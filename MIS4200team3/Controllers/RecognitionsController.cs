@@ -59,7 +59,7 @@ namespace MIS4200team3.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.profileID = new SelectList(db.Profile, "profileID", "firstName", recognition.profileID);
+            ViewBag.profileID = new SelectList(db.Profile, "profileID", "firstName", recognition.id);
             return View(recognition);
         }
 
@@ -75,7 +75,7 @@ namespace MIS4200team3.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.profileID = new SelectList(db.Profile, "profileID", "firstName", recognition.profileID);
+            ViewBag.profileID = new SelectList(db.Profile, "profileID", "firstName", recognition.id);
             return View(recognition);
         }
 
@@ -92,7 +92,7 @@ namespace MIS4200team3.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.profileID = new SelectList(db.Profile, "profileID", "firstName", recognition.profileID);
+            ViewBag.profileID = new SelectList(db.Profile, "profileID", "firstName", recognition.id);
             return View(recognition);
         }
 
