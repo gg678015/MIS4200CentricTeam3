@@ -41,7 +41,7 @@ namespace MIS4200team3.Controllers
         // GET: Recognitions/Create
         public ActionResult Create()
         {
-            ViewBag.profileID = new SelectList(db.Profile, "profileID", "fullName");
+            ViewBag.id = new SelectList(db.Profile, "id", "fullName");
             return View();
         }
 
@@ -50,7 +50,7 @@ namespace MIS4200team3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "recognitionID,description,values,profileID")] Recognition recognition)
+        public ActionResult Create([Bind(Include = "recognitionID,description,values,id")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +59,7 @@ namespace MIS4200team3.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.profileID = new SelectList(db.Profile, "profileID", "firstName", recognition.id);
+            ViewBag.id = new SelectList(db.Profile, "id", "firstName", recognition.id);
             return View(recognition);
         }
 
@@ -75,7 +75,7 @@ namespace MIS4200team3.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.profileID = new SelectList(db.Profile, "profileID", "firstName", recognition.id);
+            ViewBag.id = new SelectList(db.Profile, "id", "firstName", recognition.id);
             return View(recognition);
         }
 
@@ -84,7 +84,7 @@ namespace MIS4200team3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "recognitionID,description,values,profileID")] Recognition recognition)
+        public ActionResult Edit([Bind(Include = "recognitionID,description,values,id")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace MIS4200team3.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.profileID = new SelectList(db.Profile, "profileID", "firstName", recognition.id);
+            ViewBag.id = new SelectList(db.Profile, "id", "firstName", recognition.id);
             return View(recognition);
         }
 
