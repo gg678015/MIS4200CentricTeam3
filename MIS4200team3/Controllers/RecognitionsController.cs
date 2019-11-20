@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using MIS4200team3.DAL;
 using MIS4200team3.Models;
 
+
 namespace MIS4200team3.Controllers
 {
     [Authorize]
@@ -30,11 +31,12 @@ namespace MIS4200team3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Recognition recognition = db.Recognition.Find(id);
+            var recognition = db.Recognition.Find(id);
             if (recognition == null)
             {
                 return HttpNotFound();
-            }
+            }        
+
             return View(recognition);
         }
 
@@ -131,4 +133,5 @@ namespace MIS4200team3.Controllers
             base.Dispose(disposing);
         }
     }
+
 }
