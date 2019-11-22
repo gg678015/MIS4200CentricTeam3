@@ -9,7 +9,8 @@ using System.Web.Mvc;
 using MIS4200team3.DAL;
 using MIS4200team3.Models;
 using System.Net;
-using System.Net.Mail;
+using System.Net.Mail;
+
 
 
 namespace MIS4200team3.Controllers
@@ -70,7 +71,7 @@ namespace MIS4200team3.Controllers
                 MailAddress from = new MailAddress("jg346015@ohio.edu", "SysAdmin");
                 myMessage.From = from;
                 // first, the customer found in the order is used to locate the customer record
-                var profile -db.Profile.Find(Recognition.id);
+                var profile = db.Profile.Find(recognition.id);
                 // then extract the email address from the customer record
                 var profileEmail = profile.email;
                 // finally, add the email address to the “To” list
@@ -79,24 +80,24 @@ namespace MIS4200team3.Controllers
                 // it is also possible to add CC addresses
                 myMessage.To.Add("jg346015@ohio.edu"); // this should be replaced with model data
                                                        // as shown at the end of this document
-                myMessage.Subject = "MVC Email test";
+                myMessage.Subject = "Centric Recognition";
                 // the body of the email is hard coded here but could be dynamically created using data
                 // from the model- see the note at the end of this document
                 myMessage.Body = "Congratulations! You have received a recognition! Please log into your Centric profile page to view your recognition.";
-                myMessage.Body += "from the database, a variable, the return of another method...";
                 try
                 {
                     myClient.Send(myMessage);
                     TempData["mailError"] = "";
                     return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    // this captures an Exception and allows you to display the message in the View
+                    TempData["mailError"] = ex.Message;
+                }
+                
             }
-            }
-            catch (Exception ex)
-            {
-                // this captures an Exception and allows you to display the message in the View
-                TempData["mailError"] = ex.Message;
-            }
-            return View();
+            // return View();
             ViewBag.id = new SelectList(db.Profile, "id", "firstName", recognition.id);
             return View(recognition);
         }
