@@ -67,6 +67,24 @@
         </dd>
 
     </dl>
+    @{
+        var total = ViewBag.total;
+        var excellence = ViewBag.Excellence;
+        var culture = ViewBag.Culture;
+        var integrity = ViewBag.Integrity;
+        var stewardship = ViewBag.Stewardship;
+        var innovation = ViewBag.Innovation;
+        var greaterGood = ViewBag.GreaterGood;
+        var balance = ViewBag.Balance;
+        <h5><strong>Total recognitions received</strong> = @total</h5>
+        <h5>Excellence awards = @excellence</h5>
+        <h5>Culture awards = @culture</h5>
+        <h5>Integrity awards = @integrity</h5>
+        <h5>Stewardship awards = @stewardship</h5>
+        <h5>Innovation awards = @innovation</h5>
+        <h5>GreaterGood awards = @greaterGood</h5>
+        <h5>Balance awards = @balance</h5>
+    }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
