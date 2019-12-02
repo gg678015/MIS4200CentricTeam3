@@ -136,7 +136,7 @@ namespace MIS4200team3.Controllers
         }
 
         // GET: Profiles/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -146,6 +146,16 @@ namespace MIS4200team3.Controllers
             if (profile == null)
             {
                 return HttpNotFound();
+            }
+            Guid guid;
+            Guid.TryParse(User.Identity.GetUserId(), out guid);
+            if (profile.ID == guid)
+            {
+                return View(profile);
+            }
+            else
+            {
+                return View("NotAuthenticated");
             }
             return View(profile);
         }
@@ -167,7 +177,7 @@ namespace MIS4200team3.Controllers
         }
 
         // GET: Profiles/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {

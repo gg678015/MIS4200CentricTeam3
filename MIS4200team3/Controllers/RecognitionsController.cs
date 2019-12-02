@@ -114,7 +114,7 @@ namespace MIS4200team3.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.id = new SelectList(db.Profile, "id", "firstName", recognition.id);
+            ViewBag.id = new SelectList(db.Profile, "id", "firstName", recognition.id);         
             return View(recognition);
         }
 
