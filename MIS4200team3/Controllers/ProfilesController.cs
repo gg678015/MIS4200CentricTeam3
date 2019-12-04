@@ -165,7 +165,7 @@ namespace MIS4200team3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "profileID,firstName,lastName,businessUnit,hireDate,employeeTitle,phone,email")] Profile profile)
+        public ActionResult Edit([Bind(Include = "ID,firstName,lastName,businessUnit,hireDate,employeeTitle,phone,email")] Profile profile)
         {
             if (ModelState.IsValid)
             {
