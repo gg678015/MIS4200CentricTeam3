@@ -9,10 +9,16 @@ namespace MIS4200team3.Models
     public class Recognition
     {
         [Key]
+        
+        
         public int recognitionID { get; set;}
 
+        [Display(Name = "Description")]
+        [Required(ErrorMessage = "Description Required")]
+        [StringLength(120)]
         public string description { get; set; }
 
+        [Display(Name ="Values")]
         public cValues values { get; set; }
 
         public enum cValues
