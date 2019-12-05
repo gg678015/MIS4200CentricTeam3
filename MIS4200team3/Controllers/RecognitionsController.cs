@@ -10,8 +10,7 @@ using MIS4200team3.DAL;
 using MIS4200team3.Models;
 using System.Net;
 using System.Net.Mail;
-
-
+using Microsoft.AspNet.Identity;
 
 namespace MIS4200team3.Controllers
 {
@@ -47,6 +46,10 @@ namespace MIS4200team3.Controllers
         public ActionResult Create()
         {
             ViewBag.id = new SelectList(db.Profile, "id", "fullName");
+            string empID = User.Identity.GetUserId();
+            SelectList profile = new SelectList(db.Profile, "id", "fullName");
+            profile = new SelectList(profile.Where(x => x.Value != empID).ToList(), "Value", "Text");
+            ViewBag.recID = profile;
             return View();
         }
 
