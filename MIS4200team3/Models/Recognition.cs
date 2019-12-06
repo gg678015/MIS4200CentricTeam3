@@ -19,10 +19,14 @@ namespace MIS4200team3.Models
         public string description { get; set; }
 
         [Display(Name ="Values")]
+        [Range (1,7)]
+        [Required(ErrorMessage = "Please Select a Core Value")]
         public cValues values { get; set; }
 
         public enum cValues
         {
+            [Display(Name= "Please Select")]
+            Select = 0,
             Stewardship,
             Culture,
             DeliveryExcellance,
@@ -31,7 +35,6 @@ namespace MIS4200team3.Models
             Integrity,
             Balance
         }
-
         
         public Guid id { get; set; }
         public virtual Profile Profile { get; set; }
